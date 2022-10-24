@@ -1,0 +1,54 @@
+* {
+    font-family: sans-serif;
+}
+
+body {
+    background-image: url("../Assets/minimal-sunrise");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    background-color: rgba(219, 28, 28, 0.582);
+    font-size: 36px;
+    text-align: center;
+    padding: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 50px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.card {
+    padding: 10px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    margin: 10px;
+}
+
+.name-role-section {
+    text-align: left;
+}
+
+.card ul li {
+    list-style: none;
+    border: 2px rgb(53, 117, 95);
+    padding: 3px;
+}
