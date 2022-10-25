@@ -1,15 +1,18 @@
+//Node modules
 const inquirer = require("inquirer");
+const generatePage = require("./src/generatePage");
+const fs = require("fs");
+
+//Lib modules
 const Employee = require("./lib/Employee");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
-const generatePage = require("./src/generatePage");
-const fs = require("fs");
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 //Variable for prompting the manager and creating an array of questions
-const promptJefe = () => {
+const promptManager = () => {
     //Array of questions
     return inquirer.prompt([
         {
@@ -48,6 +51,7 @@ const promptJefe = () => {
                 } return false;
             }
         },
+        //Added office number for Engineer
         {
             type: 'input',
             name: 'officeNumber',
@@ -78,7 +82,7 @@ const promptMenuOptions = () => {
         {
             type: 'list',
             name: 'menu',
-            message: 'Please select which option you would like to continue with: ',
+            message: 'Please select how you would like to continue building your team: ',
             choices: ['Add an Engineer', 'Add an Intern', 'Finish Building Dream Team']
         }])
         //Prompts the selectable choices, then runs selected choice function
@@ -138,6 +142,7 @@ const promptEngineer = () => {
                 } return false;
             }
         },
+        //Added Github for Engineer
         {
             type: 'input',
             name: 'engineerGithub',
@@ -160,3 +165,73 @@ const promptEngineer = () => {
 };
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+//variable for Intern
+const promptIntern = () => {
+    console.log(`++++++ ADD A NEW INTERN ++++++`);
+    //Array of questions for Intern section
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'internName',
+            message: 'Please enter the name of the Intern',
+            validate: internName => {
+                if (internName) {
+                    return true;
+                } else {
+                    console.log('Please enter the name of the Intern!');
+                } return false;
+            }
+        },
+        {
+            type: 'input',
+            name: 'internId',
+            message: 'Please enter employee ID for Intern',
+            validate: internId => {
+                if (internId) {
+                    return true;
+                } else {
+                    console.log('Please enter the employee ID of the Intern!');
+                } return false;
+            }
+        },
+        {
+            type: 'input',
+            name: 'internEmail',
+            message: 'Please enter the email of the Intern',
+            validate: internEmail => {
+                if (internEmail) {
+                    return true;
+                } else {
+                    console.log('Please enter the email of the Intern!');
+                } return false;
+            }
+        },
+        //Added school for intern
+        {
+            type: 'input',
+            name: 'internSchool',
+            message: 'Please enter the School the Intern attended',
+            validate: internSchool => {
+                if (internSchool) {
+                    return true;
+                } else {
+                    console.log('Please enter the School the Intern attended!');
+                    return false;
+                }
+            }
+        },
+    ]).then(answers => {
+        console.log(answers);
+        const Intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+        memeMembers.push(Intern);
+        promptMenuOptions()
+    });
+};
+
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+const createTeam = () => {
+    console.log(`++++++ You have finished building THE DREAM TEAM! ++++++`);
+
+}
