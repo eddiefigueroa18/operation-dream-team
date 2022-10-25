@@ -1,6 +1,6 @@
 //Node modules
 const inquirer = require("inquirer");
-const generatePage = require("./src/generatePage");
+const generatePage = require("./src/generatePage.js");
 const fs = require("fs");
 
 //Lib modules
@@ -9,6 +9,7 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 
+const memeMembers = [];
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 //Variable for prompting the manager and creating an array of questions
@@ -67,7 +68,7 @@ const promptManager = () => {
         },
     ]).then(answers => {
         console.log(answers);
-        const manager = new manager(answers.managerName, answers.managerId, answers.managerEmail, answers.officeNumber);
+        const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.officeNumber);
         memeMembers.push(manager);
         promptMenuOptions()
         //Start the next function
@@ -103,7 +104,11 @@ const promptMenuOptions = () => {
 
 //variable for engineer
 const promptEngineer = () => {
-    console.log(`++++++ ADD A NEW ENGINEER ++++++`);
+    console.log(`
+    ++++++ 
+    ADD A NEW ENGINEER 
+    ++++++`
+    );
     //Array of questions for engineer section
     return inquirer.prompt([
         {
@@ -168,7 +173,11 @@ const promptEngineer = () => {
 
 //variable for Intern
 const promptIntern = () => {
-    console.log(`++++++ ADD A NEW INTERN ++++++`);
+    console.log(`
+    ++++++ 
+    ADD A NEW INTERN 
+    ++++++
+    `);
     //Array of questions for Intern section
     return inquirer.prompt([
         {
@@ -223,15 +232,26 @@ const promptIntern = () => {
         },
     ]).then(answers => {
         console.log(answers);
-        const Intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
-        memeMembers.push(Intern);
+        const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+        memeMembers.push(intern);
         promptMenuOptions()
     });
 };
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+//Variable the logs when complete
+const createTeam = (memeMembers) => {
+    console.log(`
+    ++++++++++++++++++++++++++++++++++++++++++ 
+    You have finished building THE DREAM TEAM! 
+    ++++++++++++++++++++++++++++++++++++++++++
+    `);
+    //Creates the file to be generate in "generatePage"
+    fs.writeFileSync("./src/generatePage.js", memeMembers, "utf-8"), (err)=> {
+        err ? console.error(err) : console.log('New HTML generated');
+    };
+};
 
-const createTeam = () => {
-    console.log(`++++++ You have finished building THE DREAM TEAM! ++++++`);
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-}
+promptManager();
