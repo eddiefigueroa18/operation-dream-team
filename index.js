@@ -1,6 +1,6 @@
 //Node modules
 const inquirer = require("inquirer");
-const generatePage = require("./src/generatePage.js");
+// const generatePage = require("./src/generatePage.js");
 const fs = require("fs");
 
 //Lib modules
@@ -10,6 +10,10 @@ const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 
 const memeMembers = [];
+
+const generatePage = () => {
+    console.log('hello')
+}
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 //Variable for prompting the manager and creating an array of questions
@@ -247,9 +251,9 @@ const createTeam = (memeMembers) => {
     ++++++++++++++++++++++++++++++++++++++++++
     `);
     //Creates the file to be generate in "generatePage"
-    fs.writeFileSync("./src/generatePage.js", memeMembers, "utf-8"), (err)=> {
+    fs.writeFile("./dist/index.html", generatePage(memeMembers), (err)=> {
         err ? console.error(err) : console.log('New HTML generated');
-    };
+    });
 };
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
