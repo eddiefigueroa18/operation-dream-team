@@ -1,6 +1,6 @@
 //Node modules
 const inquirer = require("inquirer");
-// const generatePage = require("./src/generatePage.js");
+const generatePage = require("./src/generatePage.js");
 const fs = require("fs");
 
 //Lib modules
@@ -9,11 +9,8 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 
-const memeMembers = [];
+const memberData = [];
 
-const generatePage = () => {
-    console.log('hello')
-}
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 //Variable for prompting the manager and creating an array of questions
@@ -73,7 +70,7 @@ const promptManager = () => {
     ]).then(answers => {
         console.log(answers);
         const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.officeNumber);
-        memeMembers.push(manager);
+        memberData.push(manager);
         promptMenuOptions()
         //Start the next function
     });
@@ -168,7 +165,7 @@ const promptEngineer = () => {
     ]).then(answers => {
         console.log(answers);
         const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
-        memeMembers.push(engineer);
+        memberData.push(engineer);
         promptMenuOptions()
     });
 };
@@ -237,21 +234,21 @@ const promptIntern = () => {
     ]).then(answers => {
         console.log(answers);
         const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
-        memeMembers.push(intern);
+        memberData.push(intern);
         promptMenuOptions()
     });
 };
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 //Variable the logs when complete
-const createTeam = (memeMembers) => {
+const createTeam = (memberData) => {
     console.log(`
     ++++++++++++++++++++++++++++++++++++++++++ 
     You have finished building THE DREAM TEAM! 
     ++++++++++++++++++++++++++++++++++++++++++
     `);
     //Creates the file to be generate in "generatePage"
-    fs.writeFile("./dist/index.html", generatePage(memeMembers), (err)=> {
+    fs.writeFile("./dist/index.html", generatePage(memberData), (err)=> {
         err ? console.error(err) : console.log('New HTML generated');
     });
 };
