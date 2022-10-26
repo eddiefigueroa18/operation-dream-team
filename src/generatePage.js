@@ -15,7 +15,7 @@ const createTeam = (dreamTeam) => {
             </div>
             <div class="information">
                 <ul class="info-list">
-                    <li class="identification" id="identification-1">ID: ${manager.Id}</li>
+                    <li class="identification" id="identification-1">ID: ${manager.id}</li>
                     <li class="email">Email: <span id="email-1"><a href="mailto:${manager.email}">${manager.email}</a></span></li>
                     <li class="office-number" id="office-1">Office Number: ${manager.officeNumber}</li>
                 </ul>
@@ -31,14 +31,14 @@ const createTeam = (dreamTeam) => {
         let engineerHtml = `
         <section class="card" id="card-2">
             <div class="name-role-section">
-                <h2 class="name">${manager.name}</h2>
+                <h2 class="name">${engineer.name}</h2>
                 <h3 class="role">Engineer</h3>
             </div>
             <div class="information">
                 <ul class="info-list">
-                    <li class="identification" id="identification-2">ID: ${manager.Id}</li>
-                    <li class="email">Email: <span id="email-2"><a href="mailto:${manager.email}">${manager.email}</a></span></li>
-                    <li class="github">Github: <a target ="_blank" href="https://github.com/${manager.engineerGihub}">${manager.engineerGihub}</a></li>
+                    <li class="identification" id="identification-2">ID: ${engineer.id}</li>
+                    <li class="email">Email: <span id="email-2"><a href="mailto:${engineer.email}">${engineer.email}</a></span></li>
+                    <li class="github">Github: <a target ="_blank" href="https://github.com/${engineer.github}">${engineer.github}</a></li>
                 </ul>
             </div>
         </section>
@@ -52,14 +52,14 @@ const createTeam = (dreamTeam) => {
         let internHtml = `
         <section class="card" id="card-3">
             <div class="name-role-section">
-                <h2 class="name">${manager.name}</h2>
+                <h2 class="name">${intern.name}</h2>
                 <h3 class="role">Intern</h3>
             </div>
             <div class="information">
                 <ul class="info-list">
-                    <li class="identification" id="identification-3">ID: ${manager.Id}</li>
-                    <li class="email">Email: <span id="email-2"><a href="${manager.email}">${manager.email}</a></span></li>
-                    <li class="school" id="school-3">School: ${manager.School}</li>
+                    <li class="identification" id="identification-3">ID: ${intern.id}</li>
+                    <li class="email">Email: <span id="email-2"><a href="${intern.email}">${intern.email}</a></span></li>
+                    <li class="school" id="school-3">School: ${intern.school}</li>
                 </ul>
             </div>
         </section>
@@ -68,7 +68,7 @@ const createTeam = (dreamTeam) => {
     }
 
     //Loop through all of the employees so that user can add multiple employees to the Dream Team
-    for (let i = 0; i < dreamTeam; i++) {
+    for (let i = 0; i < dreamTeam.length; i++) {
         if (dreamTeam[i].getRole() === "Manager") {
             genManHtml(dreamTeam[i]);
         }
@@ -85,8 +85,7 @@ const createTeam = (dreamTeam) => {
 
 //Export function that will generate entire page in the "Main" section
 module.exports = dreamTeam => {
-    return `
-    <!DOCTYPE html>
+    return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -103,6 +102,7 @@ module.exports = dreamTeam => {
         <h1>The Dream Team</h1>
     </header>
     <main>${createTeam(dreamTeam)}</main>
+    <script src="./index.js"></script>
 </body>
 </html>
     `;

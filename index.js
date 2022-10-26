@@ -4,7 +4,7 @@ const generatePage = require("./src/generatePage.js");
 const fs = require("fs");
 
 //Lib modules
-const Employee = require("./lib/Employee");
+// const Employee = require("./lib/Employee");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
@@ -98,7 +98,7 @@ const promptMenuOptions = () => {
                     promptIntern();
                     break;
                 default: 
-                    createTeam();
+                    createTeam(memberData);
             }
     });
 };
@@ -108,10 +108,10 @@ const promptMenuOptions = () => {
 //variable for engineer
 const promptEngineer = () => {
     console.log(`
-    ++++++ 
+    ++++++++++++++++++ 
     ADD A NEW ENGINEER 
-    ++++++`
-    );
+    ++++++++++++++++++
+    `);
     //Array of questions for engineer section
     return inquirer.prompt([
         {
@@ -177,9 +177,9 @@ const promptEngineer = () => {
 //variable for Intern
 const promptIntern = () => {
     console.log(`
-    ++++++ 
+    ++++++++++++++++ 
     ADD A NEW INTERN 
-    ++++++
+    ++++++++++++++++
     `);
     //Array of questions for Intern section
     return inquirer.prompt([
@@ -242,6 +242,7 @@ const promptIntern = () => {
 };
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
 //Variable the logs when complete
 const createTeam = (memberData) => {
     console.log(`
@@ -249,8 +250,9 @@ const createTeam = (memberData) => {
     You have finished building THE DREAM TEAM! 
     ++++++++++++++++++++++++++++++++++++++++++
     `);
-    //Creates the file to be generate in "generatePage"
-    fs.writeFile("./src/generatePage.js", generatePage(memberData), (err)=> {
+    //Creates the file to be generate in "index.html"
+    console.log(memberData)
+    fs.writeFile("./dist/index.html", generatePage(memberData), "utf-8", (err)=> {
         err ? console.error(err) : console.log('New HTML generated');
     });
 };
