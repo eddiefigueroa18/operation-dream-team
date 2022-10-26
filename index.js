@@ -9,6 +9,7 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
 
+//Empty array to push answers (data) into
 const memberData = [];
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
@@ -96,7 +97,8 @@ const promptMenuOptions = () => {
                 case "Add an Intern":
                     promptIntern();
                     break;
-                default: createTeam();
+                default: 
+                    createTeam();
             }
     });
 };
@@ -246,9 +248,10 @@ const createTeam = (memberData) => {
     ++++++++++++++++++++++++++++++++++++++++++ 
     You have finished building THE DREAM TEAM! 
     ++++++++++++++++++++++++++++++++++++++++++
+
     `);
     //Creates the file to be generate in "generatePage"
-    fs.writeFile("./dist/index.html", generatePage(memberData), (err)=> {
+    fs.writeFile("./src/generatePage.js", generatePage(memberData), (err)=> {
         err ? console.error(err) : console.log('New HTML generated');
     });
 };
