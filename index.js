@@ -26,7 +26,7 @@ const promptManager = () => {
                 if (managerName) {
                     return true;
                 } else {
-                console.log('A Name is required! ');
+                console.log('A Manager Name is required! ');
                 } return false
             }
         },
@@ -141,7 +141,7 @@ const promptEngineer = () => {
         {
             type: 'input',
             name: 'engineerEmail',
-            message: 'Please enter the name of the Engineer',
+            message: 'Please enter the email of the Engineer',
             validate: engineerEmail => {
                 if (engineerEmail) {
                     return true;
@@ -253,7 +253,7 @@ const createTeam = (memberData) => {
     //Creates the file to be generate in "index.html"
     console.log(memberData)
     fs.writeFile("./dist/index.html", generatePage(memberData), "utf-8", (err)=> {
-        err ? console.error(err) : console.log('New HTML generated');
+        err ? console.error(err) : console.log('New HTML Generated!');
     });
 };
 

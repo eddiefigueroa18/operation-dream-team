@@ -3,7 +3,7 @@ const Intern = require("../lib/Intern");
 //Create a fake variable so you can test functionality
 const fakeIntern = new Intern("Daniel", "12345", "danielp@gmail.com", "Walla-Walla");
 
-//TODO: Extract constructor value
+//Extract constructor value
 test("This is a test to see if we can get the constructor values for the Intern object", () => {
     expect(fakeIntern.name).toBe("Daniel");
     expect(fakeIntern.id).toBe("12345");
@@ -11,7 +11,7 @@ test("This is a test to see if we can get the constructor values for the Intern 
     expect(fakeIntern.school).toBe("Walla-Walla");
 });
 
-//TODO: Extract the methods for getname(), getId(), getEmail(), getSchool() from the Intern.js file
+//Extract the methods for getname(), getId(), getEmail(), getSchool() from the Intern.js file
 test("This is a test to see if we can get the name from the getName() method", () => {
     expect(fakeIntern.getName()).toBe("Daniel");
 });

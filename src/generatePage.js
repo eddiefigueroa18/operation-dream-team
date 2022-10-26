@@ -83,6 +83,8 @@ const createTeam = (dreamTeam) => {
     return htmlElements.join('');
 };
 
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
+
 //Export function that will generate entire page in the "Main" section
 module.exports = dreamTeam => {
     return `<!DOCTYPE html>

@@ -2,14 +2,14 @@
 const Manager = require("../lib/Manager");
 //Create a fake variable so you can test functionality
 const fakeManager = new Manager("Daniel", "12345", "danielp@gmail.com", "007")
-//TODO: Extract constructor value
+//Extract constructor value
 test("This is a test to see if we can get the constructor values for the Manager object", () => {
     expect(fakeManager.name).toBe("Daniel");
     expect(fakeManager.id).toBe("12345");
     expect(fakeManager.email).toBe("danielp@gmail.com");
     expect(fakeManager.officeNumber).toBe("007");
 });
-//TODO: Extract the methods for getname(), getId(), getEmail(), getOfficeNumber from the Manager.js file
+//Extract the methods for getname(), getId(), getEmail(), getOfficeNumber from the Manager.js file
 test("This is a test to see if we can get the name from the getName() method", () => {
     expect(fakeManager.getName()).toBe("Daniel");
 });

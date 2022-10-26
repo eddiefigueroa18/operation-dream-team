@@ -3,7 +3,7 @@ const Engineer = require("../lib/Engineer");
 //Create a fake variable so you can test functionality
 const fakeEngineer = new Engineer("Daniel", "12345", "danielp@gmail.com", "dannyp");
 
-//TODO: Extract constructor value
+//Extract constructor value
 test("This is a test to see if we can get the constructor values for the Engineer object", () => {
     expect(fakeEngineer.name).toBe("Daniel");
     expect(fakeEngineer.id).toBe("12345");
@@ -11,7 +11,7 @@ test("This is a test to see if we can get the constructor values for the Enginee
     expect(fakeEngineer.gitHub).toBe("dannyp");
 });
 
-//TODO: Extract the methods for getname(), getId(), getEmail(), getGithub() from the Engineer.js file
+//Extract the methods for getname(), getId(), getEmail(), getGithub() from the Engineer.js file
 test("This is a test to see if we can get the name from the getName() method", () => {
     expect(fakeEngineer.getName()).toBe("Daniel");
 });
