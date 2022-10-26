@@ -1,5 +1,3 @@
-const Engineer = require("../lib/Engineer");
-
 //Variable with function to pass through all data needed to generate html
 const createTeam = (dreamTeam) => {
     console.log(dreamTeam);
@@ -68,6 +66,21 @@ const createTeam = (dreamTeam) => {
         `
         htmlElements.push(internHtml);
     }
+
+    //Loop through all of the employees so that user can add multiple employees to the Dream Team
+    for (let i = 0; i < dreamTeam; i++) {
+        if (dreamTeam[i].getRole() === "Manager") {
+            genManHtml(dreamTeam[i]);
+        }
+        if (dreamTeam[i].getRole() === "Engineer") {
+            genEngHtml(dreamTeam[i]);
+        }
+        if (dreamTeam[i].getRole() === "Intern") {
+            genIntHtml(dreamTeam[i]);
+        }
+    };
+
+    return htmlElements.join('');
 };
 
 //Export function that will generate entire page in the "Main" section

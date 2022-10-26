@@ -248,7 +248,6 @@ const createTeam = (memberData) => {
     ++++++++++++++++++++++++++++++++++++++++++ 
     You have finished building THE DREAM TEAM! 
     ++++++++++++++++++++++++++++++++++++++++++
-
     `);
     //Creates the file to be generate in "generatePage"
     fs.writeFile("./src/generatePage.js", generatePage(memberData), (err)=> {
