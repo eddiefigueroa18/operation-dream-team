@@ -8,6 +8,7 @@ body {
     background-repeat: no-repeat;
 }
 
+/* Makes the content flex and adjust with the screen size */
 main {
     display: flex;
     flex-wrap: wrap;
@@ -48,7 +49,7 @@ header {
     text-align: center;
 }
 
-
+/* Removes bullet points */
 .info-list {
     list-style: none;
     padding: 3px;

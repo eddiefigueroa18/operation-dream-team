@@ -23,3 +23,5 @@ test("This is a test to see if we can get the email from  the getEmail() method"
 test("This is a test to see if we can get the Role from the getRole() method", () => {
     expect(fakeEmployee.getRole()).toBe("Employee");
 });
+
+//Test pass: True.

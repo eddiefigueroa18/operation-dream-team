@@ -25,3 +25,5 @@ test("This is a test to see if we can get the officeNumber from the getOfficeNum
 test("This is a test to see if we can get the Role from the getRole() method", () => {
     expect(fakeManager.getRole()).toBe("Manager");
 });
+
+//Test pass: True.

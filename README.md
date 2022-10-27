@@ -41,6 +41,8 @@ Contributors:
 Made with [contrib.rocks](https://contrib.rocks).
 
 ## Tests
+![](./Assets/testPassValidation.png)
+
 ![GitHub license](https://img.shields.io/badge/Test-100%25-success)
 All tests have passed. Application is fully functional
 

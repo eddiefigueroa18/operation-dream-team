@@ -21,7 +21,7 @@ const promptManager = () => {
         {
             type: 'input',
             name: 'managerName',
-            message: 'What is your name? ',
+            message: 'Please enter a manager name ',
             validate: managerName => {
                 if (managerName) {
                     return true;

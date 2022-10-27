@@ -85,7 +85,7 @@ const createTeam = (dreamTeam) => {
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-//Export function that will generate entire page in the "Main" section
+//Export function that will generate entire page in the "Main" section of the HTML file
 module.exports = dreamTeam => {
     return `<!DOCTYPE html>
 <html lang="en">

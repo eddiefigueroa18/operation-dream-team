@@ -27,3 +27,5 @@ test("This is a test to see if we can get the school from the getSchool method",
 test("This is a test to see if we can get the Role from the getRole() method", () => {
     expect(fakeIntern.getRole()).toBe("Intern");
 });
+
+//Test pass: True.
